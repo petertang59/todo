@@ -8,11 +8,15 @@ li {
 	font-weight: 400;
 	min-height: 100px;
 	width: 40%;
-	background: #FFF787;
+	/*background: #FFF787;*/
+	/*background:#d5d5d5;*/
+	background:white;
 	margin: 1em 3%;
 	float: left;
 	padding: 1em;
 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	 /*box-shadow:0 1px 2px #aaa;*/
+	 border-radius:.25rem;
 }
 
 .done {
@@ -32,3 +36,22 @@ ul {
 	padding: 0;
 }
 
+.ng-enter {	
+	transition: 0.5s;
+	opacity:0;
+	/*width: 0%;*/
+}
+
+.ng-enter-active {
+	opacity:1;
+	/*width: 30%;*/
+}
+	
+.ng-leave {
+	transition: 0.5s;
+	opacity:1;
+}
+
+.ng-leave-active {
+	opacity: 0;
+}
