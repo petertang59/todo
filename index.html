@@ -16,6 +16,7 @@
 	<div ng-controller="todoController">
 		<form name="frm" ng-submit="addTodo()">
 			<input type="text" placeholder="Add To Do" name="newToDo" ng-model="newToDo" required />
+			<input type="text" placeholder="Add To Do" name="newDetail" ng-model="newDetail" required />
 			<button ng-disabled="frm.$invalid">Add</button>
 		</form>
 		<button ng-click="clearCompleted()">Clear Completed</button>
@@ -23,6 +24,7 @@
 	<ul>
 		<li class="todo" ng-repeat="todo in todos">
 			<input type="checkbox" ng-model="todo.done"/>
+			<span ng-class="{'done':todo.done}">{{todo.title}}</span>
 			<span ng-class="{'done':todo.done}">{{todo.title}}</span>
 			
 		</li>
@@ -39,10 +41,17 @@ controller('todoController',['$scope',function($scope){
 	$scope.todos = [
 		{'title':'Build a todo app', 'done':false}
 	];
+	$scope.details = [
+		{'title':'Build a todo app', 'done':false}
+	];
 
 	$scope.addTodo = function (){
 		$scope.todos.push({'title':$scope.newToDo,'done':false})
 		$scope.newToDo = ""
+	}
+	$scope.addDetail = function (){
+		$scope.todos.push({'title':$scope.newDetail,'done':false})
+		$scope.newDetail = ""
 	}
 	$scope.clearCompleted = function (){
 		$scope.todos = $scope.todos.filter(function(item) {
