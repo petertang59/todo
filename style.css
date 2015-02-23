@@ -130,12 +130,14 @@ button {
 .ng-enter {	
 	transition: 0.5s;
 	opacity:0;
+	transform: scale(0);
 	/*width: 0%;*/
 }
 
 .ng-enter-active {
 	opacity:1;
 	/*width: 30%;*/
+	transform: scale(1);
 }
 	
 .ng-leave {
