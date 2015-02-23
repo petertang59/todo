@@ -39,12 +39,23 @@ li {
 }
 
 input {
-	margin: 1em 2em;
+	margin: auto 2.5%;
 	margin-right: 0;
+	margin-top: 20px;
 }
 
 button {
-	margin: 1em 2em;
+	margin: auto 2.5%;
+	margin-top: 20px;
+}
+
+p {
+	/*letter-spacing: 0.15em;*/
+}
+
+.time-select {
+	margin:auto 2.5%;
+	margin-top: 20px;
 }
 
 .main {

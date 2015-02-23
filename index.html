@@ -12,14 +12,52 @@
 		<form name="frm" ng-submit="addTodo()">
 			<input type="text" placeholder="Add To Do" name="newToDo" ng-model="newToDo" required />
 			<input type="text" placeholder="Add Detail" name="newDetail" ng-model="newDetail" />
-			<select name="time" ng-model="newTime">
-				<option value="" disabled selected>Add Time</option>
-  				<option>15 mins</option>
-				<option>30 mins</option>
-				<option>An hour</option>
-				<option>A few hours from now</option>
-				<option>Tomorrow</option>
+			
+			<div class="time-select">
+			<select name="hour" ng-model="newHour" required>
+				<option value="" disabled selected>Add Hour</option>
+  				<option>00:</option>
+				<option>01:</option>
+				<option>02:</option>
+				<option>03:</option>
+				<option>04:</option>
+				<option>05:</option>
+				<option>06:</option>
+				<option>07:</option>
+				<option>08:</option>
+				<option>09:</option>
+				<option>10:</option>
+				<option>11:</option>
+				<option>12:</option>
+				<option>13:</option>
+				<option>14:</option>
+				<option>15:</option>
+				<option>16:</option>
+				<option>17:</option>
+				<option>18:</option>
+				<option>19:</option>
+				<option>20:</option>
+				<option>21:</option>
+				<option>22:</option>
+				<option>23:</option>
 			</select>
+			<select name="minute" ng-model="newMinute" required>
+				<option value="" disabled selected>Add Minute</option>
+				<option>00</option>
+				<option>05</option>
+				<option>10</option>
+				<option>15</option>
+				<option>20</option>
+				<option>25</option>
+				<option>30</option>
+				<option>35</option>
+				<option>40</option>
+				<option>45</option>
+				<option>50</option>
+				<option>55</option>
+			</select>
+		</div>
+		
 			<button ng-disabled="frm.$invalid">Add</button>
 		</form>
 		<button ng-click="clearCompleted()">Clear Completed</button>
@@ -35,7 +73,7 @@
 			
 			<!-- <div class="pullout -->
 			<p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
-			<p class="time" ng-class="{'done':todo.done}">Due: {{todo.time}}</p>
+			<p class="time" ng-class="{'done':todo.done}">Due: {{todo.hour}}{{todo.minute}}</p>
 			<!-- </div> -->
 		</li>
 	</ul>
@@ -50,17 +88,18 @@ angular.module('ToDo',['ngAnimate']).
 controller('todoController',['$scope',function($scope){
 	$scope.todos = [
 		{'title':'Build a todo app', 'done':false,
-		'detail':'It better look cool', 'time':'11:59PM'}
+		'detail':'It better look cool', 'hour':'00:','minute':'00'}
 	];
 	// $scope.details = [
 	// 	{'title':'Before the due date', 'done':false}
 	// ];
 
 	$scope.addTodo = function (){
-		$scope.todos.push({'title':$scope.newToDo,'detail':$scope.newDetail,'time':$scope.newTime,'done':false})
+		$scope.todos.push({'title':$scope.newToDo,'detail':$scope.newDetail,'hour':$scope.newHour,'minute':$scope.newMinute,'done':false})
 		$scope.newToDo = ""
 			$scope.newDetail = ""
-			$scope.newTime = ""
+			$scope.newHour = ""
+			$scope.newMinute = ""
 	}
 
 	$scope.clearCompleted = function (){
