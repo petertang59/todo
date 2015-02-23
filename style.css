@@ -1,5 +1,6 @@
 body {
 	background:#d5d5d5;
+	margin:0;
 }
 
 .todo {
@@ -7,11 +8,23 @@ body {
 	list-style:none;
 }
 
+p {
+	margin:0;
+	padding: 0 10px;
+}
+
+ul {
+	padding: 0;
+}
+
+
 li {
 	font-family: roboto;
 	font-weight: 400;
+	font-size: 20px;
 	min-height: 100px;
 	width: 40%;
+	position:relative;
 	/*background: #FFF787;*/
 	/*background:#d5d5d5;*/
 	background:white;
@@ -21,10 +34,8 @@ li {
 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 	 /*box-shadow:0 1px 2px #aaa;*/
 	 border-radius:.25rem;
-}
-
-.done {
-	opacity: 0.5;
+	text-transform: capitalize;
+	word-wrap: break-word
 }
 
 input {
@@ -36,9 +47,85 @@ button {
 	margin: 1em 2em;
 }
 
-ul {
-	padding: 0;
+.detail {
+	font-size: 12px;
+	
 }
+/*.pullout {
+	background: white;
+	bottom: -30px;
+	position: absolute;
+	padding:1em;
+	width:100%;
+
+}*/
+
+.checkbox {
+	margin:0;
+	position: absolute;
+	/*margin-left: 38%;*/
+	right: 10px;
+}
+
+.done {
+	text-decoration: line-through; 
+	color: #ccc;
+	transition: 0.3s;
+}
+
+.checkboxFive {
+	width: 25px;
+	/*margin: 20px 100px;*/
+	position: relative;
+	float:right;
+}
+
+.checkboxFive label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+  	left: 0;
+	background: #eee;
+	transition: 0.3s;
+	/*border:1px solid #ddd;*/
+}
+
+.checkboxFive label:after {
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #2DBDC4;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	transition: 0.3s;
+}
+
+.checkboxFive label:hover::after {
+/*	opacity: 0.5;
+	transition: 0.1s;*/
+}
+
+.checkboxFive input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+
+.checkboxFive input {
+	margin: auto;
+}
+
+/*Animations */
 
 .ng-enter {	
 	transition: 0.5s;

@@ -5,28 +5,31 @@
 	<title>todo</title>
 	<link href="style.css" rel="stylesheet" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
-	<style>
-	.done {
-		text-decoration: line-through; color: #ccc;
-	}
-	</style>
 </head>
 
 <body>
 	<div ng-controller="todoController">
 		<form name="frm" ng-submit="addTodo()">
 			<input type="text" placeholder="Add To Do" name="newToDo" ng-model="newToDo" required />
-			<input type="text" placeholder="Add To Do" name="newDetail" ng-model="newDetail" required />
+			<input type="text" placeholder="Add Detail" name="newDetail" ng-model="newDetail" />
+			<input type="text" placeholder="Add Time" name="newTime" ng-model="newTime" />
 			<button ng-disabled="frm.$invalid">Add</button>
 		</form>
 		<button ng-click="clearCompleted()">Clear Completed</button>
 
 	<ul>
 		<li class="todo" ng-repeat="todo in todos">
-			<input type="checkbox" ng-model="todo.done"/>
-			<span ng-class="{'done':todo.done}">{{todo.title}}</span>
-			<span ng-class="{'done':todo.done}">{{todo.title}}</span>
+			<!-- <input class="checkbox" type="checkbox" ng-model="todo.done"/> -->
+			<div class="checkboxFive">
+  				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput" name="" />
+	  			<label for="checkboxFiveInput"></label>
+  			</div>
+			<p ng-class="{'done':todo.done}">{{todo.title}}</p>
 			
+			<!-- <div class="pullout -->
+			<p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
+			<p class="time" ng-class="{'done':todo.done}">{{todo.time}}</p>
+			<!-- </div> -->
 		</li>
 	</ul>
 	</div>
@@ -39,20 +42,20 @@
 angular.module('ToDo',['ngAnimate']).
 controller('todoController',['$scope',function($scope){
 	$scope.todos = [
-		{'title':'Build a todo app', 'done':false}
+		{'title':'Build a todo app', 'done':false,
+		'detail':'Before the due date', 'time':''}
 	];
-	$scope.details = [
-		{'title':'Build a todo app', 'done':false}
-	];
+	// $scope.details = [
+	// 	{'title':'Before the due date', 'done':false}
+	// ];
 
 	$scope.addTodo = function (){
-		$scope.todos.push({'title':$scope.newToDo,'done':false})
+		$scope.todos.push({'title':$scope.newToDo,'detail':$scope.newDetail,'time':$scope.newTime,'done':false})
 		$scope.newToDo = ""
+			$scope.newDetail = ""
+			$scope.newTime = ""
 	}
-	$scope.addDetail = function (){
-		$scope.todos.push({'title':$scope.newDetail,'done':false})
-		$scope.newDetail = ""
-	}
+
 	$scope.clearCompleted = function (){
 		$scope.todos = $scope.todos.filter(function(item) {
 			return !item.done
