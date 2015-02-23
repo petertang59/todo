@@ -12,7 +12,14 @@
 		<form name="frm" ng-submit="addTodo()">
 			<input type="text" placeholder="Add To Do" name="newToDo" ng-model="newToDo" required />
 			<input type="text" placeholder="Add Detail" name="newDetail" ng-model="newDetail" />
-			<input type="text" placeholder="Add Time" name="newTime" ng-model="newTime" />
+			<select name="time" ng-model="newTime">
+				<option value="" disabled selected>Add Time</option>
+  				<option>15 mins</option>
+				<option>30 mins</option>
+				<option>An hour</option>
+				<option>A few hours from now</option>
+				<option>Tomorrow</option>
+			</select>
 			<button ng-disabled="frm.$invalid">Add</button>
 		</form>
 		<button ng-click="clearCompleted()">Clear Completed</button>
@@ -24,11 +31,11 @@
   				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput" name="" />
 	  			<label for="checkboxFiveInput"></label>
   			</div>
-			<p ng-class="{'done':todo.done}">{{todo.title}}</p>
+			<p class="main" ng-class="{'done':todo.done}">{{todo.title}}</p>
 			
 			<!-- <div class="pullout -->
 			<p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
-			<p class="time" ng-class="{'done':todo.done}">{{todo.time}}</p>
+			<p class="time" ng-class="{'done':todo.done}">Due: {{todo.time}}</p>
 			<!-- </div> -->
 		</li>
 	</ul>
@@ -43,7 +50,7 @@ angular.module('ToDo',['ngAnimate']).
 controller('todoController',['$scope',function($scope){
 	$scope.todos = [
 		{'title':'Build a todo app', 'done':false,
-		'detail':'Before the due date', 'time':''}
+		'detail':'It better look cool', 'time':'11:59PM'}
 	];
 	// $scope.details = [
 	// 	{'title':'Before the due date', 'done':false}
