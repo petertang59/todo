@@ -4,17 +4,18 @@
 	<meta charset="UTF-8">
 	<title>todo</title>
 	<link href="style.css" rel="stylesheet" />
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 	<div ng-controller="todoController">
+		<div class="head">
 		<form name="frm" ng-submit="addTodo()">
-			<input type="text" placeholder="Add To Do" name="newToDo" ng-model="newToDo" required />
-			<input type="text" placeholder="Add Detail" name="newDetail" ng-model="newDetail" />
+			<input type="text" placeholder="Title" name="newToDo" ng-model="newToDo" required />
+			<input type="text" placeholder="Details" name="newDetail" ng-model="newDetail" />
 			
 			<div class="time-select">
-			<select name="hour" ng-model="newHour" required>
+			<select name="hour" ng-model="newHour" >
 				<option value="" disabled selected>Add Hour</option>
   				<option>00:</option>
 				<option>01:</option>
@@ -41,7 +42,7 @@
 				<option>22:</option>
 				<option>23:</option>
 			</select>
-			<select name="minute" ng-model="newMinute" required>
+			<select name="minute" ng-model="newMinute" >
 				<option value="" disabled selected>Add Minute</option>
 				<option>00</option>
 				<option>05</option>
@@ -61,19 +62,27 @@
 			<button ng-disabled="frm.$invalid">Add</button>
 		</form>
 		<button ng-click="clearCompleted()">Clear Completed</button>
+		<button ng-click="sortDate()">Sort By Date</button>
+	</div>
 
 	<ul>
-		<li class="todo" ng-repeat="todo in todos">
+		<li class="todo" ng-repeat="(i, todo) in todos">
+			<div class="top-todo">
 			<!-- <input class="checkbox" type="checkbox" ng-model="todo.done"/> -->
 			<div class="checkboxFive">
-  				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput" name="" />
-	  			<label for="checkboxFiveInput"></label>
+  				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" />
+	  			<label for="checkboxFiveInput-{{i}}"></label>
   			</div>
-			<p class="main" ng-class="{'done':todo.done}">{{todo.title}}</p>
-			
-			<!-- <div class="pullout -->
+			<!-- <p class="main" ng-class="{'done':todo.done}">{{todo.title}}</p> -->
+			<input ng-class="{'done':todo.done}" class="main-input" type='text' ng-class"{'done':todo.done}" ng-model="todo.title">
+		</div>
+			<form name="frm" ng-submit="addInfo()">
+				<input type="text" placeholder="Add Info" name="newDetail" ng-model="newDetail" required />
+				<!-- <button>Add</button> -->
+			</form>
 			<p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
 			<p class="time" ng-class="{'done':todo.done}">Due: {{todo.hour}}{{todo.minute}}</p>
+
 			<!-- </div> -->
 		</li>
 	</ul>
@@ -90,6 +99,15 @@ controller('todoController',['$scope',function($scope){
 		{'title':'Build a todo app', 'done':false,
 		'detail':'It better look cool', 'hour':'00:','minute':'00'}
 	];
+
+	$scope.orderProp='date';
+   
+   //  $scope.sortDate = function (tabIndex) {
+   //   //Sort by date
+   //      $scope.orderProp='date';    
+   //    }   
+   // };
+	
 	// $scope.details = [
 	// 	{'title':'Before the due date', 'done':false}
 	// ];
@@ -107,7 +125,9 @@ controller('todoController',['$scope',function($scope){
 			return !item.done
 		})
 	}
+
 }])
+
 
 </script>
 </body>

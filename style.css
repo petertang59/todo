@@ -1,6 +1,21 @@
 body {
-	background:#d5d5d5;
+	background:#e6e6e6;
 	margin:0;
+}
+
+.head {
+padding: 2em 5%;
+margin-bottom: 1em;
+/*background: #0080C4;*/
+}
+
+.head input {
+	width: 90%;
+margin: 0;
+margin-bottom: 1em;
+padding: 5%;
+font-size: 12px;
+}
 }
 
 .todo {
@@ -19,34 +34,45 @@ ul {
 
 
 li {
-	font-family: roboto;
+	font-family: Source Sans Pro;
 	font-weight: 400;
 	font-size: 20px;
-	min-height: 100px;
-	width: 40%;
+	min-height: 80px;
+	/*width: 40%;*/
+	width:80%;
 	position:relative;
 	/*background: #FFF787;*/
 	/*background:#d5d5d5;*/
 	background:white;
-	margin: 1em 3%;
+	margin: 5px 5%;
 	float: left;
-	padding: 1em;
-	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+	padding: 1em 5%;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 	 /*box-shadow:0 1px 2px #aaa;*/
 	 border-radius:.25rem;
 	text-transform: capitalize;
-	word-wrap: break-word
+	word-wrap: break-word;
+	transition: 0.3s;
+	background-clip: padding-box;
 }
+
+/*li:hover {
+	transform: scale(1.03);
+	transition: 0.3s;
+}*/
 
 input {
 	margin: auto 2.5%;
 	margin-right: 0;
-	margin-top: 20px;
+	border:none;
+	font-family: Source Sans Pro;
 }
 
 button {
 	margin: auto 2.5%;
 	margin-top: 20px;
+	border:none;
+	background: white;
 }
 
 p {
@@ -58,9 +84,43 @@ p {
 	margin-top: 20px;
 }
 
+
+select {
+	display: inline-block;
+	outline: 0 !important;
+	background: transparent;
+	font-size: 14px;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	border: 0;
+}
+
+.top-todo {
+	 border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
 .main {
 	padding-bottom:0.5em;
 	font-weight: bold;
+}
+
+.main-input {
+	padding-bottom: 0.5em;
+font-weight: bold;
+border: none;
+font-size: 20px;
+max-width: 80%;
+word-wrap: break-word;
+margin: 0;
+padding: 0;
+/*border-bottom: solid 1px gray;*/
+padding-bottom: 16px;
+display:block;
+letter-spacing:1px;
+}
+
+textarea:focus, input:focus, select:focus{
+    outline: 0;
 }
 
 .time {
