@@ -66,13 +66,15 @@ input {
 	margin-right: 0;
 	border:none;
 	font-family: Source Sans Pro;
+	text-transform: capitalize;	
 }
 
 button {
 	margin: auto 2.5%;
 	margin-top: 20px;
-	border:none;
+	border: none;
 	background: white;
+	border-radius: 10px;
 }
 
 p {
@@ -80,8 +82,17 @@ p {
 }
 
 .time-select {
-	margin:auto 2.5%;
-	margin-top: 20px;
+	/*margin:auto 2.5%;*/
+	margin: 0;
+	padding: 5%;
+	margin-bottom: 1em;
+	background: white;
+}
+
+.time-select select {
+	font-size: 11px;
+	text-align: left;
+	opacity: 0.4;
 }
 
 
