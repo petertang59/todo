@@ -7,10 +7,41 @@ body {
 	margin:0;
 }
 
+.bar {
+	height:50px;
+	width:100%;
+	background: grey;
+	text-align: right;
+	position:fixed;
+	top:0;
+}
+
+.bar button {
+	/*margin: 10px;*/
+	margin:0;
+	height: 50px;
+	width: 50px;
+	border-radius:0px;
+	font-size:20px;
+	line-height: 0;
+	text-align:center;
+	padding:0;
+	opacity:0.3;
+	transition:0.3s;
+}
+.bar button:hover {
+	opacity:1;
+	transition:0.3s;
+}
+
 .head {
-padding: 2em 5%;
-margin-bottom: 1em;
-/*background: #0080C4;*/
+	padding: 2em 5%;
+	margin: 1em auto;
+	/* display: none; */
+	/* background: #0080C4; */
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 0;
+	padding-bottom: 1em;
 }
 
 .head input {
@@ -34,6 +65,7 @@ p {
 
 ul {
 	padding: 0;
+	margin-top: 3em;
 }
 
 
@@ -73,6 +105,7 @@ input {
 
 textarea {
 	width:100%;
+	resize:none;
 }
 
 button {
@@ -93,7 +126,7 @@ button:disabled {
 	font-size: 14px;
 	width: 25%;
 	border-radius: 0;
-	float: left;
+	/*float: left;*/
 	margin-bottom:1em;
 	margin-top: 1em;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -142,7 +175,7 @@ font-size: 16px;
 max-width: 100%;
 word-wrap: break-word;
 margin: 0;
-padding: 0;
+padding: 0 20px;
 display: block;
 font-family: brandon Medium;
 color: gray;
@@ -150,7 +183,7 @@ color: gray;
 /* border-bottom: solid 1px gray; */
 }
 
-textarea:focus, input:focus, select:focus{
+textarea:focus, input:focus, select:focus, button:focus{
     outline: 0;
 }
 
@@ -237,6 +270,11 @@ color: white;
 
 .checkboxFive input {
 	margin: auto;
+	width: 20px;
+}
+
+.checkbox {
+
 }
 
 .todo-body {
@@ -281,10 +319,51 @@ color: white;
 }
 
 .wide {
-	width: 100%;
+	width: 95%;
 	transition: 0.3s;
 	position: absolute;
 	right:0;
+}
+
+.wide .time {
+	font-size: 12px;
+	opacity: 0.8;
+	transition: 0.3s;
+}
+
+.options {
+	width: 0%;
+	height: 80px;
+	float: left;
+	background: gray;
+	transition: 0.3s;
+}
+
+.options-wide {
+	width:10%;
+	transition: 0.3s;
+}
+
+.mark-done {
+	height:	50%;
+	background: #71b576;
+}
+
+.trash {
+	height: 50%;
+	background: #be1e2d;
+}
+
+.todo-body-options{
+	width: 40%;
+	transition: 0.3s;
+	position: absolute;
+	/*right:0;*/
+}
+
+.todo-body-options .options{
+	width: 10%;
+	transition: 0.3s;
 }
 
 /*//////Fonts///////*/
