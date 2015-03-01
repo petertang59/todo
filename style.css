@@ -194,8 +194,10 @@ color: white;
 }
 
 .detail {
-	font-size: 12px;
+	font-size: 16px;
+	color:white;
 	margin: 0.5em auto;
+	display:none;
 	
 }
 /*.pullout {
@@ -221,34 +223,35 @@ color: white;
 }
 
 .checkboxFive {
-	width: 25px;
-	/*margin: 20px 100px;*/
+	width: 100%;
+/* margin: 20px 100px; */
 	position: relative;
-	float:right;
+	/*float: right;*/
+	display: block;
 }
 
 .checkboxFive label {
 	cursor: pointer;
 	position: absolute;
-	width: 25px;
-	height: 25px;
+	width: 100%;
+	height: 40px;
 	top: 0;
   	left: 0;
-	background: #eee;
+	/*background: #eee;*/
 	transition: 0.3s;
 	/*border:1px solid #ddd;*/
 }
 
 .checkboxFive label:after {
-	opacity: 0;
+	opacity: 0.2;
 	content: '';
 	position: absolute;
-	width: 9px;
-	height: 5px;
+	width: 15px;
+	height: 8px;
 	background: transparent;
-	top: 6px;
-	left: 7px;
-	border: 3px solid #2DBDC4;
+	top: 11px;
+	left: 10px;
+	border: 3px solid white;
 	border-top: none;
 	border-right: none;
 	-webkit-transform: rotate(-45deg);
@@ -266,11 +269,13 @@ color: white;
 
 .checkboxFive input[type=checkbox]:checked + label:after {
 	opacity: 1;
+
 }
 
 .checkboxFive input {
 	margin: auto;
 	width: 20px;
+	display: none;
 }
 
 .checkbox {
@@ -331,6 +336,10 @@ color: white;
 	transition: 0.3s;
 }
 
+.wide .detail {
+	display: block;
+}
+
 .options {
 	width: 0%;
 	height: 80px;
@@ -349,9 +358,19 @@ color: white;
 	background: #71b576;
 }
 
+.mark-done .checkbox{
+
+}
+
 .trash {
 	height: 50%;
 	background: #be1e2d;
+}
+
+.trash img {
+	width: 25px;
+height: 25px;
+margin: 6px;
 }
 
 .todo-body-options{

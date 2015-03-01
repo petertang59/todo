@@ -125,8 +125,16 @@
 	<ul id="list">
 		<li class="todo" ng-repeat="(i, todo) in todos | orderBy:orderProp">
 			<div class="options" ng-class="{'options-wide' : toggle.state}">
-				<div class="mark-done"></div>
-				<div class="trash"></div>
+				<div class="mark-done">
+						<div class="checkboxFive">
+		  				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" />
+			  			<label for="checkboxFiveInput-{{i}}"></label>
+	  				</div>
+					<!-- <input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" /> -->
+				</div>
+				<div class="trash" ng-click="remove($index)">
+					<img src="img/trash.png">
+				</div>
 			</div>
 			<div class="todo-body" ng-swipe-right="toggle.state = !toggle.state" ng-swipe-left="toggle.state = !toggle.state" ng-class="{'todo-body-options' : toggle.state}">
 				<div class="top-todo" >
@@ -134,10 +142,7 @@
 				</div>
 			</div>
 				<!-- <input class="checkbox" type="checkbox" ng-model="todo.done"/> -->
-				<!-- 	<div class="checkboxFive">
-		  				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" />
-			  			<label for="checkboxFiveInput-{{i}}"></label>
-	  				</div> -->
+				
 					<!-- <p class="main" ng-class="{'done':todo.done}">{{todo.title}}</p> -->
 
 					<!-- <input ng-class="{'done':todo.done}" class="main-input" type='text' ng-class"{'done':todo.done}" ng-model="todo.title"> -->
@@ -151,9 +156,9 @@
 			<div class="todo-check" ng-swipe-right="toggle.state1 = !toggle.state1" ng-swipe-left="toggle.state1 = !toggle.state1" ng-class="{'wide' : toggle.state1}">
 				<!-- <p class="time" ng-class="{'done':todo.done}">Due: {{todo.hour}}{{todo.minute}}</p> -->
 				<p class="time" ng-class="{'done':todo.done}">{{todo.month}} {{todo.day}}</p>
-				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" />
+				<p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
 			</div>
-			<!-- </div> -->
+			</div>
 		</li>
 	</ul>
 	</div>
@@ -167,7 +172,7 @@
 angular.module('ToDo',['ngAnimate','ngTouch']).
 controller('todoController',['$scope',function($scope){
 	$scope.todos = [
-		{'title':'Build a todo app', 'done':false, 'month':'Aug','day':'07','hour':'00:','minute':'00'}
+		{'title':'Build a todo app', 'done':false, 'detail':'Make it shoot rainbows', 'month':'Aug','day':'07','hour':'00:','minute':'00'}
 	];
 
 	$scope.orderProp='date';
@@ -188,12 +193,22 @@ controller('todoController',['$scope',function($scope){
 		})
 	}
 
-	$scope.toggles = [{ state: true }, { state: false }, { state: true }];
+	$scope.remove = function(array, index){
+    array.splice(index, 1);
+	}
+	
+	$scope.orderProp = function() {
+      $scope.orderProp = 'title';
+    }
+
+     $scope.remove = function(index) {
+    var item = $scope.items[index];
+    removeItem(item);
+  };
+
 	}])
 
- $scope.orderProp = function() {
-      $scope.orderProp = 'title';
-    };
+ 
 
 </script>
 
