@@ -1,5 +1,9 @@
+html {
+	padding: 2em 0;
+}
+
 body {
-	background:#e6e6e6;
+	background: #E3E3E3;
 	margin:0;
 }
 
@@ -11,10 +15,10 @@ margin-bottom: 1em;
 
 .head input {
 	width: 90%;
-margin: 0;
-margin-bottom: 1em;
-padding: 5%;
-font-size: 12px;
+	margin: 0;
+	margin-bottom: 1em;
+	padding: 5%;
+	font-size: 14px;
 }
 }
 
@@ -34,26 +38,24 @@ ul {
 
 
 li {
-	font-family: Source Sans Pro;
-	font-weight: 400;
-	font-size: 20px;
-	min-height: 80px;
-	/*width: 40%;*/
-	width:80%;
-	position:relative;
-	/*background: #FFF787;*/
-	/*background:#d5d5d5;*/
-	background:white;
-	margin: 5px 5%;
-	float: left;
-	padding: 1em 5%;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-	 /*box-shadow:0 1px 2px #aaa;*/
-	 border-radius:.25rem;
-	text-transform: capitalize;
-	word-wrap: break-word;
-	transition: 0.3s;
-	background-clip: padding-box;
+font-family: Brandon Medium;
+font-weight: 400;
+font-size: 16px;
+min-height: 80px;
+width: 100%;
+position: relative;
+/* background: #d5d5d5; */
+background: white;
+margin: 3px 0;
+float: left;
+/*padding: 1em 5%;*/
+box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1);
+/* border-radius: .25rem; */
+text-transform: capitalize;
+word-wrap: break-word;
+transition: 0.3s;
+background-clip: padding-box;
+list-style: none;
 }
 
 /*li:hover {
@@ -65,8 +67,12 @@ input {
 	margin: auto 2.5%;
 	margin-right: 0;
 	border:none;
-	font-family: Source Sans Pro;
+	font-family: Brandon Medium;
 	text-transform: capitalize;	
+}
+
+textarea {
+	width:100%;
 }
 
 button {
@@ -75,6 +81,24 @@ button {
 	border: none;
 	background: white;
 	border-radius: 10px;
+	font-family: brandon medium;
+}
+
+button:disabled {
+	opacity:50%;
+}
+
+.top-button {
+	height: 3em;
+	font-size: 14px;
+	width: 25%;
+	border-radius: 0;
+	float: left;
+	margin-bottom:1em;
+	margin-top: 1em;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 p {
@@ -90,9 +114,10 @@ p {
 }
 
 .time-select select {
-	font-size: 11px;
+	font-size: 14px;
 	text-align: left;
 	opacity: 0.4;
+	font-family: brandon medium;
 }
 
 
@@ -106,28 +131,23 @@ select {
 	border: 0;
 }
 
-.top-todo {
-	 border-bottom: 1px solid rgba(0, 0, 0, .1);
-}
-
 .main {
 	padding-bottom:0.5em;
-	font-weight: bold;
+	font-weight: Medium;
 }
 
 .main-input {
-	padding-bottom: 0.5em;
-font-weight: bold;
 border: none;
-font-size: 20px;
-max-width: 80%;
+font-size: 16px;
+max-width: 100%;
 word-wrap: break-word;
 margin: 0;
 padding: 0;
-/*border-bottom: solid 1px gray;*/
-padding-bottom: 16px;
-display:block;
-letter-spacing:1px;
+display: block;
+font-family: brandon Medium;
+color: gray;
+/*letter-spacing: 2px;*/
+/* border-bottom: solid 1px gray; */
 }
 
 textarea:focus, input:focus, select:focus{
@@ -135,8 +155,9 @@ textarea:focus, input:focus, select:focus{
 }
 
 .time {
-	font-size: 12px;
-	margin: 0.5em auto;
+font-size: 16px;
+margin: 0.5em auto;
+color: white;
 }
 
 .detail {
@@ -218,7 +239,62 @@ textarea:focus, input:focus, select:focus{
 	margin: auto;
 }
 
-/*Animations */
+.todo-body {
+	width:70%;
+	float:left;
+	display:inline-block;
+	margin:0;
+	/*padding: 1em;*/
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.top-todo {
+	 /*border-bottom: 1px solid rgba(0, 0, 0, .1);*/
+	min-height: 80px;
+	padding: 1em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.todo-check {
+	width: 30%;
+	float: left;
+	display: inline-block;
+	margin: 0;
+	/*background: #be1e2d;*/
+	background: #38a4dc;
+	min-height: 80px;
+	padding: 0em 5%;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	transition: 0.3s;
+	position: absolute;
+	right:0;
+}
+
+.todo-check input {
+	position:absolute;
+}
+
+.wide {
+	width: 100%;
+	transition: 0.3s;
+	position: absolute;
+	right:0;
+}
+
+/*//////Fonts///////*/
+@font-face {
+    font-family: Brandon Medium;
+    src: url(fonts/Brandon_med.otf);
+}
+
+
+/*///////Animations///////*/
 
 .ng-enter {	
 	transition: 0.3s;

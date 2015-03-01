@@ -4,7 +4,10 @@
 	<meta charset="UTF-8">
 	<title>todo</title>
 	<link href="style.css" rel="stylesheet" />
+	<link href="flip.css" rel="stylesheet" />
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="js/hammer.js"></script>
+	<script src="js/controller.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -14,9 +17,59 @@
 		<form name="frm" ng-submit="addTodo()">
 			<input type="text" placeholder="Title" name="newToDo" ng-model="newToDo" required />
 			<input type="text" placeholder="Details" name="newDetail" ng-model="newDetail" />
-			
 			<div class="time-select">
-			<select name="hour" ng-model="newHour" >
+			<select name="month" ng-model="newMonth" required>
+				<option value="" disabled selected>Month</option>
+  				<option>Jan</option>
+				<option>Feb</option>
+				<option>Mar</option>
+				<option>Apr</option>
+				<option>May</option>
+				<option>Jun</option>
+				<option>Jul</option>
+				<option>Aug</option>
+				<option>Sep</option>
+				<option>Oct</option>
+				<option>Nov</option>
+				<option>Dec</option>
+			</select>
+			<select name="day" ng-model="newDay" required>
+				<option value="" disabled selected>Day</option>
+				<option>01</option>
+				<option>02</option>
+				<option>03</option>
+				<option>04</option>
+				<option>05</option>
+				<option>06</option>
+				<option>07</option>
+				<option>08</option>
+				<option>09</option>
+				<option>10</option>
+				<option>11</option>
+				<option>12</option>
+				<option>13</option>
+				<option>14</option>
+				<option>15</option>
+				<option>16</option>
+				<option>17</option>
+				<option>18</option>
+				<option>19</option>
+				<option>20</option>
+				<option>21</option>
+				<option>22</option>
+				<option>23</option>
+				<option>24</option>
+				<option>25</option>
+				<option>26</option>
+				<option>27</option>
+				<option>28</option>
+				<option>29</option>
+				<option>30</option>
+				<option>31</option>
+			</select>
+		</div>
+			<!-- <div class="time-select">
+			<select name="hour" ng-model="newHour" required>
 				<option value="" disabled selected>Add Hour</option>
   				<option>00:</option>
 				<option>01:</option>
@@ -43,7 +96,7 @@
 				<option>22:</option>
 				<option>23:</option>
 			</select>
-			<select name="minute" ng-model="newMinute" >
+			<select name="minute" ng-model="newMinute" required>
 				<option value="" disabled selected>Add Minute</option>
 				<option>00</option>
 				<option>05</option>
@@ -58,32 +111,44 @@
 				<option>50</option>
 				<option>55</option>
 			</select>
-		</div>
-		
-			<button ng-disabled="frm.$invalid">Add</button>
+		</div> -->
+			<button class="top-button" ng-disabled="frm.$invalid">Add</button>
+			<button class="top-button" ng-click="clearCompleted()">Clear Completed</button>
+		<button class="top-button" ng-click="sortDate()">Sort By Date</button>
 		</form>
-		<button ng-click="clearCompleted()">Clear Completed</button>
-		<button ng-click="sortDate()">Sort By Date</button>
+		
 	</div>
 
-	<ul>
-		<li class="todo" ng-repeat="(i, todo) in todos">
-			<div class="top-todo">
-			<!-- <input class="checkbox" type="checkbox" ng-model="todo.done"/> -->
-			<div class="checkboxFive">
-  				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" />
-	  			<label for="checkboxFiveInput-{{i}}"></label>
-  			</div>
-			<!-- <p class="main" ng-class="{'done':todo.done}">{{todo.title}}</p> -->
-			<input ng-class="{'done':todo.done}" class="main-input" type='text' ng-class"{'done':todo.done}" ng-model="todo.title">
-		</div>
-			<form name="frm" ng-submit="addInfo()">
-				<input type="text" placeholder="Add Info" name="newDetail" ng-model="newDetail" required />
-				<!-- <button>Add</button> -->
-			</form>
-			<p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
-			<p class="time" ng-class="{'done':todo.done}">Due: {{todo.hour}}{{todo.minute}}</p>
+	<ul id="list">
+		<li class="todo" ng-repeat="(i, todo) in todos | orderBy:orderProp">
+			<div class="todo-body">
+				<div class="top-todo">
 
+				<!-- <input class="checkbox" type="checkbox" ng-model="todo.done"/> -->
+				<!-- 	<div class="checkboxFive">
+		  				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" />
+			  			<label for="checkboxFiveInput-{{i}}"></label>
+	  				</div> -->
+					<!-- <p class="main" ng-class="{'done':todo.done}">{{todo.title}}</p> -->
+
+					<!-- <input ng-class="{'done':todo.done}" class="main-input" type='text' ng-class"{'done':todo.done}" ng-model="todo.title"> -->
+					<textarea ng-class="{'done':todo.done}" class="main-input" type='text' ng-class"{'done':todo.done}" ng-model="todo.title"></textarea>
+				</div>
+
+				<!-- <form name="frm" ng-submit="addInfo()">
+					<input type="text" placeholder="Add Info" name="newDetail" ng-model="newDetail" required />
+					<!-- <button>Add</button> -->
+					<!-- <p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
+				</form> -->
+				
+				
+			</div>
+
+			<div class="todo-check" ng-swipe-right="toggle.state = !toggle.state" ng-swipe-left="toggle.state = !toggle.state" ng-class="{'wide' : toggle.state}">
+				<!-- <p class="time" ng-class="{'done':todo.done}">Due: {{todo.hour}}{{todo.minute}}</p> -->
+				<p class="time" ng-class="{'done':todo.done}">{{todo.month}} {{todo.day}}</p>
+				<input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" />
+			</div>
 			<!-- </div> -->
 		</li>
 	</ul>
@@ -92,34 +157,26 @@
 
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
 
 <script>
-angular.module('ToDo',['ngAnimate']).
+angular.module('ToDo',['ngAnimate','ngTouch']).
 controller('todoController',['$scope',function($scope){
 	$scope.todos = [
-		{'title':'Build a todo app', 'done':false,
-		'detail':'It better look cool', 'hour':'00:','minute':'00'}
+		{'title':'Build a todo app', 'done':false, 'month':'Month','day':'Day','hour':'00:','minute':'00'}
 	];
 
 	$scope.orderProp='date';
-   
-   //  $scope.sortDate = function (tabIndex) {
-   //   //Sort by date
-   //      $scope.orderProp='date';    
-   //    }   
-   // };
-	
-	// $scope.details = [
-	// 	{'title':'Before the due date', 'done':false}
-	// ];
 
 	$scope.addTodo = function (){
-		$scope.todos.push({'title':$scope.newToDo,'detail':$scope.newDetail,'hour':$scope.newHour,'minute':$scope.newMinute,'done':false})
+		$scope.todos.push({'title':$scope.newToDo,'detail':$scope.newDetail,'hour':$scope.newHour,'minute':$scope.newMinute,'day':$scope.newDay,'month':$scope.newMonth,'done':false})
 		$scope.newToDo = ""
 			$scope.newDetail = ""
 			$scope.newHour = ""
 			$scope.newMinute = ""
-	}
+			$scope.newMonth = ""
+			$scope.newDay = ""
+	}	
 
 	$scope.clearCompleted = function (){
 		$scope.todos = $scope.todos.filter(function(item) {
@@ -127,11 +184,30 @@ controller('todoController',['$scope',function($scope){
 		})
 	}
 
+	$scope.sortDate = function (){
+	$scope.todos = $scope.todos.filter(function(item) {
+		return !item.done
+		})
+	}
+$scope.toggles = [{ state: true }, { state: false }, { state: true }];
 }])
 
 
+
+
 </script>
+
 <script>
-ul.children().each(function(i,li){ul.prepend(li)});</script>
+ul = $('#list'); // your parent ul element
+ul.children().each(function(i,li){ul.prepend(li)})
+</script>
+
+<script>
+	var colors = ['#9AC7E6', '#00ff00', '#0000ff'];
+var random_color = colors[Math.floor(Math.random() * colors.length)];
+
+$('li').css('background', random_color);
+</script>
+
 </body>
 </html>
