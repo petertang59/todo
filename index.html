@@ -14,9 +14,12 @@
 <body>
 	<div ng-controller="todoController">
 		<div class="bar">
-			<button ngclick="">+</button>
+			<h1>GSD</h1>
+			<!-- <button>+</button> -->
+			<!-- <button ng-click="toggle.state3 =!toggle.state3">+</button> -->
 		</div>
-			<div class="head">
+			<div class="head visible">
+				<!-- <div class="head" ng-class="{'visible' : toggle.state3}"> -->
 			<form name="frm" ng-submit="addTodo()">
 				<input type="text" placeholder="Title" name="newToDo" ng-model="newToDo" required />
 				<input type="text" placeholder="Details" name="newDetail" ng-model="newDetail" />
@@ -71,59 +74,17 @@
 					<option>31</option>
 				</select>
 			</div>
-				<!-- <div class="time-select">
-				<select name="hour" ng-model="newHour" required>
-					<option value="" disabled selected>Add Hour</option>
-	  				<option>00:</option>
-					<option>01:</option>
-					<option>02:</option>
-					<option>03:</option>
-					<option>04:</option>
-					<option>05:</option>
-					<option>06:</option>
-					<option>07:</option>
-					<option>08:</option>
-					<option>09:</option>
-					<option>10:</option>
-					<option>11:</option>
-					<option>12:</option>
-					<option>13:</option>
-					<option>14:</option>
-					<option>15:</option>
-					<option>16:</option>
-					<option>17:</option>
-					<option>18:</option>
-					<option>19:</option>
-					<option>20:</option>
-					<option>21:</option>
-					<option>22:</option>
-					<option>23:</option>
-				</select>
-				<select name="minute" ng-model="newMinute" required>
-					<option value="" disabled selected>Add Minute</option>
-					<option>00</option>
-					<option>05</option>
-					<option>10</option>
-					<option>15</option>
-					<option>20</option>
-					<option>25</option>
-					<option>30</option>
-					<option>35</option>
-					<option>40</option>
-					<option>45</option>
-					<option>50</option>
-					<option>55</option>
-				</select>
-			</div> -->
+			<div class="head-buttons">
 				<button class="top-button" ng-disabled="frm.$invalid">Add</button>
 				<button class="top-button" ng-click="clearCompleted()">Clear Done</button>
-				<button class="top-button" ng-click="sortDate()">Flagged</button>
+			</div>
+				<!-- <button class="top-button" ng-click="showFlagged()">Flagged</button> -->
 			</form>
 			
 			</div>
-
+	<!-- <h1>Tasks</h1> -->
 	<ul id="list">
-		<li class="todo" ng-repeat="(i, todo) in todos | orderBy:orderProp">
+		<li class="todo" ng-repeat="(i, todo) in todos | orderBy:orderProp" ng-class="{'done':todo.done}">
 			<div class="options" ng-class="{'options-wide' : toggle.state}">
 				<div class="mark-done">
 						<div class="checkboxFive">
@@ -132,31 +93,31 @@
 	  				</div>
 					<!-- <input type="checkbox" ng-model="todo.done" id="checkboxFiveInput-{{i}}" name="checkboxFiveInput" /> -->
 				</div>
-				<div class="trash" ng-click="remove($index)">
+				<div class="trash" ng-click="delete($index)">
 					<img src="img/trash.png">
 				</div>
-			</div>
+			</div>	
 			<div class="todo-body" ng-swipe-right="toggle.state = !toggle.state" ng-swipe-left="toggle.state = !toggle.state" ng-class="{'todo-body-options' : toggle.state}">
 				<div class="top-todo" >
 					<textarea ng-class="{'done':todo.done}" class="main-input" type='text' ng-class"{'done':todo.done}" ng-model="todo.title"></textarea>
 				</div>
-			</div>
-				<!-- <input class="checkbox" type="checkbox" ng-model="todo.done"/> -->
-				
-					<!-- <p class="main" ng-class="{'done':todo.done}">{{todo.title}}</p> -->
-
-					<!-- <input ng-class="{'done':todo.done}" class="main-input" type='text' ng-class"{'done':todo.done}" ng-model="todo.title"> -->
-		
-				<!-- <form name="frm" ng-submit="addInfo()">
-					<input type="text" placeholder="Add Info" name="newDetail" ng-model="newDetail" required />
-					<!-- <button>Add</button> -->
-					<!-- <p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
-				</form> -->								
-
-			<div class="todo-check" ng-swipe-right="toggle.state1 = !toggle.state1" ng-swipe-left="toggle.state1 = !toggle.state1" ng-class="{'wide' : toggle.state1}">
+			</div>	
+			<div class="todo-check" ng-swipe-right="toggle.state1 = !toggle.state1" ng-swipe-left="toggle.state1 = !toggle.state1" ng-class="{'wide' : toggle.state1, 'todo-check-flagged':toggle.state2}">
 				<!-- <p class="time" ng-class="{'done':todo.done}">Due: {{todo.hour}}{{todo.minute}}</p> -->
-				<p class="time" ng-class="{'done':todo.done}">{{todo.month}} {{todo.day}}</p>
-				<p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p>
+				<div class="time-div">
+					<p class="time month" ng-class="{'done':todo.done}">{{todo.month}}</p>
+					<p class="time day" ng-class="{'done':todo.done}">{{todo.day}}</p>
+				</div>
+				<!-- <p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p> -->
+				<textarea ng-class="{'done':todo.done}" class="detail" type='text' ng-class"{'done':todo.done}" ng-model="todo.detail"></textarea>
+
+				<div class="flag"  ng-class="{'flagged':toggle.state2}" ng-model="todo.flagged" >
+					<label for="flagged-{{i}}" ng-click="toggle.state2 =!toggle.state2">
+						<img src="img/flag.png"/>
+					</label>				
+					<!-- <input type="checkbox" ng-model="todo.flagged" id="flagged-{{i}}" name="flagged" /> -->
+					
+				</div>
 			</div>
 			</div>
 		</li>
@@ -172,7 +133,10 @@
 angular.module('ToDo',['ngAnimate','ngTouch']).
 controller('todoController',['$scope',function($scope){
 	$scope.todos = [
-		{'title':'Build a todo app', 'done':false, 'detail':'Make it shoot rainbows', 'month':'Aug','day':'07','hour':'00:','minute':'00'}
+		// {'title':'Build a todo app', 'done':false, 'detail':'Make it shoot rainbows', 'month':'Aug','day':'07','hour':'00:','minute':'00'},
+		// {'title':'Pass that quiz', 'done':false, 'detail':'50% is pretty good son. Do that thing!', 'month':'Feb','day':'15','hour':'00:','minute':'00'},
+		{'title':'Be a man', 'done':false, 'detail':'You must be swift as the coursing river', 'month':'Jun','day':'23','hour':'00:','minute':'00'}
+
 	];
 
 	$scope.orderProp='date';
@@ -193,35 +157,24 @@ controller('todoController',['$scope',function($scope){
 		})
 	}
 
-	$scope.remove = function(array, index){
-    array.splice(index, 1);
-	}
+	// $scope.showFlagged = function (){
+	// 	$scope.todos = $scope.todos.filter(function(item) {
+	// 		return item.flagged
+	// 	})
+	// }
 	
-	$scope.orderProp = function() {
-      $scope.orderProp = 'title';
-    }
+	// $scope.orderProp = function() {
+ //      $scope.orderProp = 'title';
+ //    }
 
-     $scope.remove = function(index) {
-    var item = $scope.items[index];
-    removeItem(item);
+    $scope.delete = function  (index) {
+		$scope.todos.splice(index, 1);
   };
 
 	}])
 
  
 
-</script>
-
-<script>
-ul = $('#list'); // your parent ul element
-ul.children().each(function(i,li){ul.prepend(li)})
-</script>
-
-<script>
-	var colors = ['#9AC7E6', '#00ff00', '#0000ff'];
-var random_color = colors[Math.floor(Math.random() * colors.length)];
-
-$('li').css('background', random_color);
 </script>
 
 </body>
