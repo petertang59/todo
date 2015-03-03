@@ -10,12 +10,14 @@ body {
 .bar {
 	height:50px;
 	width:100%;
-	background: #38a4dc;
+	/*background: #38a4dc;*/
 	text-align: right;
 	position:fixed;
 	top:0;
 	z-index:2;
-	background: #2a7ca0;
+	/*background: #2a7ca0;*/
+	background: #38a4dc;
+
 }
 
 .bar button {
@@ -195,6 +197,7 @@ p {
 	text-align: left;
 	opacity: 0.4;
 	font-family: brandon medium;
+	
 }
 
 
@@ -367,7 +370,7 @@ margin-top: 18px;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
-	border-left: solid #A7A7A8 10px;
+	border-left: solid #A7A7A8 5px;
 	transition: 0.3s;
 }
 
@@ -423,7 +426,7 @@ margin-top: 18px;
 }
 
 .wide {
-	width: 98%;
+	width: 98.5%;
 	transition: 0.3s;
 	position: absolute;
 	right:0;
@@ -441,6 +444,7 @@ padding-right: 3px;
 
 .wide .detail {
 	display: block;
+	-webkit-animation: enter 0.5s;
 }
 
 .wide .flag {
@@ -491,14 +495,15 @@ padding-right: 3px;
 	background: #be1e2d;
 }
 
-.trash:active {
-	opacity: 0.7;
+.trash img:active {
+	opacity: 1.0;
 }
 
 .trash img {
 	width: 25px;
-height: 25px;
-margin: 6px;
+	height: 25px;
+	margin: 6px;
+	opacity:0.5;
 }
 
 .todo-body-options{
@@ -543,4 +548,10 @@ margin: 6px;
 
 .ng-leave-active {
 	opacity: 0;
+}
+
+@-webkit-keyframes enter {
+  0%   { opacity: 0;}
+  40%   { opacity: 0;}
+  100% { opacity: 1.0; }
 }
