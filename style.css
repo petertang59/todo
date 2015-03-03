@@ -17,6 +17,7 @@ body {
 	z-index:2;
 	/*background: #2a7ca0;*/
 	background: #38a4dc;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 
 }
 
@@ -52,6 +53,10 @@ body {
 	transition:0.3s;
 }
 
+.head input {
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
 .head-buttons {
 	text-align:center;
 }
@@ -61,7 +66,7 @@ body {
 	height:auto;
 	transition:0.3s;
 	opacity:1;
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 	padding: 2em 5%;
 	padding-bottom: 1em;
 }
@@ -165,6 +170,7 @@ button:disabled {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 .top-button {
@@ -178,6 +184,7 @@ button:disabled {
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 p {
@@ -190,6 +197,7 @@ p {
 	padding: 5%;
 	margin-bottom: 1em;
 	background: white;
+	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
 .time-select select {
