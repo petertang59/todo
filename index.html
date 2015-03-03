@@ -133,13 +133,11 @@
 angular.module('ToDo',['ngAnimate','ngTouch']).
 controller('todoController',['$scope',function($scope){
 	$scope.todos = [
-		// {'title':'Build a todo app', 'done':false, 'detail':'Make it shoot rainbows', 'month':'Aug','day':'07','hour':'00:','minute':'00'},
-		// {'title':'Pass that quiz', 'done':false, 'detail':'50% is pretty good son. Do that thing!', 'month':'Feb','day':'15','hour':'00:','minute':'00'},
 		{'title':'Swipe here or swipe blue.', 'done':false, 'detail':'Click the flag to highlight!', 'month':'Jun','day':'23','hour':'00:','minute':'00'}
 
 	];
 
-	$scope.orderProp='date';
+	// $scope.orderProp='month';
 
 	$scope.addTodo = function (){
 		$scope.todos.push({'title':$scope.newToDo,'detail':$scope.newDetail,'hour':$scope.newHour,'minute':$scope.newMinute,'day':$scope.newDay,'month':$scope.newMonth,'done':false})
@@ -157,6 +155,10 @@ controller('todoController',['$scope',function($scope){
 		})
 	}
 
+	$scope.delete = function  (index) {
+		$scope.todos.splice(index, 1);
+  };
+
 	// $scope.showFlagged = function (){
 	// 	$scope.todos = $scope.todos.filter(function(item) {
 	// 		return item.flagged
@@ -166,10 +168,7 @@ controller('todoController',['$scope',function($scope){
 	// $scope.orderProp = function() {
  //      $scope.orderProp = 'title';
  //    }
-
-    $scope.delete = function  (index) {
-		$scope.todos.splice(index, 1);
-  };
+    
 
 	}])
 
