@@ -55,10 +55,14 @@ body {
 
 .head input {
 	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+	-webkit-border-radius: 2px;
+border-radius: 2px;
 }
 
 .head-buttons {
 	text-align:center;
+	-webkit-border-radius: 2px;
+border-radius: 2px;
 }
 
 .visible {
@@ -80,7 +84,7 @@ body {
 	margin: 0;
 	margin-bottom: 1em;
 	padding: 5%;
-	font-size: 14px;
+	font-size: 16px;
 }
 }
 
@@ -113,7 +117,7 @@ ul {
 
 
 li {
-font-family: Brandon Medium;
+font-family: Brandon;
 font-weight: 400;
 font-size: 16px;
 min-height: 80px;
@@ -125,7 +129,7 @@ margin: 3px 0;
 float: left;
 /*padding: 1em 5%;*/
 box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1);
-/* border-radius: .25rem; */
+ border-radius: 2px; 
 text-transform: capitalize;
 word-wrap: break-word;
 transition: 0.3s;
@@ -142,7 +146,7 @@ input {
 	margin: auto 2.5%;
 	margin-right: 0;
 	border:none;
-	font-family: Brandon Medium;
+	font-family: Brandon;
 	text-transform: capitalize;	
 }
 
@@ -165,7 +169,7 @@ button {
 }
 
 button:disabled {
-	opacity: 0.5;
+	opacity: 0.4;
 	transition:0.3s;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -185,6 +189,8 @@ button:disabled {
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
 	box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+	/*background: #38a4dc;
+	color:white;*/
 }
 
 p {
@@ -201,7 +207,7 @@ p {
 }
 
 .time-select select {
-	font-size: 14px;
+	font-size: 16px;
 	text-align: left;
 	opacity: 0.4;
 	font-family: brandon medium;
@@ -213,7 +219,7 @@ select {
 	display: inline-block;
 	outline: 0 !important;
 	background: transparent;
-	font-size: 14px;
+	font-size: 16px;
 	border-radius: 0;
 	-webkit-border-radius: 0;
 	border: 0;
@@ -428,7 +434,7 @@ margin-top: 18px;
 .flag img {
 	width: 20px;
 	height: 20px;
-	margin: 30px 14px;
+	margin: 30px 11px;
 	opacity: 0.5;
 	transition: 0.3s;
 }
