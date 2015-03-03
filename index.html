@@ -24,7 +24,7 @@
 				<input type="text" placeholder="Title" name="newToDo" ng-model="newToDo" required />
 				<input type="text" placeholder="Details" name="newDetail" ng-model="newDetail" />
 				<div class="time-select">
-				<select name="month" ng-model="newMonth">
+				<select name="month" ng-model="newMonth" required>
 					<option value="" disabled selected>Month</option>
 	  				<option>Jan</option>
 					<option>Feb</option>
@@ -39,7 +39,7 @@
 					<option>Nov</option>
 					<option>Dec</option>
 				</select>
-				<select name="day" ng-model="newDay">
+				<select name="day" ng-model="newDay" required>
 					<option value="" disabled selected>Day</option>
 					<option>01</option>
 					<option>02</option>

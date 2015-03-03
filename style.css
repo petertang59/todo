@@ -58,7 +58,7 @@ body {
 
 .visible {
 	display:block;
-	height:300px;
+	height:auto;
 	transition:0.3s;
 	opacity:1;
 	margin-bottom: 2em;
@@ -173,8 +173,8 @@ button:disabled {
 	width: 25%;
 	border-radius: 0;
 	/*float: left;*/
-	/*margin-bottom:1em;*/
-	margin-top: 1em;
+	margin-bottom:0;
+	margin-top: 0;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
@@ -536,16 +536,18 @@ padding-right: 3px;
 .ng-enter {	
 	transition: 0.3s;
 	opacity:0;
-	/*transform: scale(0);*/
+	transform: scale(0);
 	/*width: 0%;*/
-	margin-left: -50%;
+	/*margin-left: -90%;*/
+	/*transition-timing-function: ease-in;*/
 }
 
 .ng-enter-active {
 	opacity:1;
 	/*width: 30%;*/
-	/*transform: scale(1);*/
+	transform: scale(1);
 	margin-left:0;
+
 }
 	
 .ng-leave {
