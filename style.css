@@ -58,7 +58,7 @@ body {
 
 .visible {
 	display:block;
-	height:290px;
+	height:300px;
 	transition:0.3s;
 	opacity:1;
 	margin-bottom: 2em;
@@ -426,7 +426,7 @@ margin-top: 18px;
 }
 
 .wide {
-	width: 92%;
+	width: 99%;
 	transition: 0.3s;
 	position: absolute;
 	right:0;
