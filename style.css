@@ -224,7 +224,7 @@ word-wrap: break-word;
 margin: 0;
 padding: 0 20px;
 display: block;
-font-family: brandon Medium;
+font-family: Brandon;
 color: gray;
 /*letter-spacing: 2px;*/
 /* border-bottom: solid 1px gray; */
@@ -269,7 +269,7 @@ max-width: 75%;
 word-wrap: break-word;
 margin: 0;
 padding: 0px;
-font-family: brandon Medium;
+font-family: brandon;
 color: white;
 margin-top: 18px;
 }
@@ -426,7 +426,7 @@ margin-top: 18px;
 }
 
 .wide {
-	width: 98.5%;
+	width: 92%;
 	transition: 0.3s;
 	position: absolute;
 	right:0;
@@ -456,7 +456,7 @@ padding-right: 3px;
 	height: 100%;
 	right: 0px;
 	top: 0;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: rgba(255, 255, 255, 0.1);
 	padding: 0 10px;
 }
 
@@ -523,6 +523,11 @@ padding-right: 3px;
 @font-face {
     font-family: Brandon Medium;
     src: url(fonts/Brandon_med.otf);
+}
+
+@font-face {
+    font-family: Brandon;
+    src: url(fonts/Brandon_reg.otf);
 }
 
 
