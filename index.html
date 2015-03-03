@@ -105,8 +105,59 @@
 			<div class="todo-check" ng-swipe-right="toggle.state1 = !toggle.state1" ng-swipe-left="toggle.state1 = !toggle.state1" ng-class="{'wide' : toggle.state1, 'todo-check-flagged':toggle.state2}">
 				<!-- <p class="time" ng-class="{'done':todo.done}">Due: {{todo.hour}}{{todo.minute}}</p> -->
 				<div class="time-div">
-					<p class="time month" ng-class="{'done':todo.done}">{{todo.month}}</p>
-					<p class="time day" ng-class="{'done':todo.done}">{{todo.day}}</p>
+				<!-- 	<p class="time month" ng-class="{'done':todo.done}">{{todo.month}}</p>
+					<p class="time day" ng-class="{'done':todo.done}">{{todo.day}}</p> -->
+
+				<select name="month" ng-model="newMonth" class="time month">
+					<option disabled selected>{{todo.month}}</option>
+	  				<option>Jan</option>
+					<option>Feb</option>
+					<option>Mar</option>
+					<option>Apr</option>
+					<option>May</option>
+					<option>Jun</option>
+					<option>Jul</option>
+					<option>Aug</option>
+					<option>Sep</option>
+					<option>Oct</option>
+					<option>Nov</option>
+					<option>Dec</option>
+				</select>
+				<select name="day" ng-model="newDay" class="time day">
+					<option disable selected>{{todo.day}}</option>
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+					<option>04</option>
+					<option>05</option>
+					<option>06</option>
+					<option>07</option>
+					<option>08</option>
+					<option>09</option>
+					<option>10</option>
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+					<option>14</option>
+					<option>15</option>
+					<option>16</option>
+					<option>17</option>
+					<option>18</option>
+					<option>19</option>
+					<option>20</option>
+					<option>21</option>
+					<option>22</option>
+					<option>23</option>
+					<option>24</option>
+					<option>25</option>
+					<option>26</option>
+					<option>27</option>
+					<option>28</option>
+					<option>29</option>
+					<option>30</option>
+					<option>31</option>
+				</select>
+
 				</div>
 				<!-- <p class="detail" ng-class="{'done':todo.done}">{{todo.detail}}</p> -->
 				<textarea ng-class="{'done':todo.done}" class="detail" type='text' ng-class"{'done':todo.done}" ng-model="todo.detail"></textarea>

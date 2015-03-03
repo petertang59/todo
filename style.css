@@ -249,12 +249,15 @@ textarea:focus, input:focus, select:focus, button:focus{
 }
 
 .time {
-font-size: 21px;
-margin: 0.5em auto;
+font-size: 18px;
+margin: auto;
 color: white;
 text-transform: uppercase;
 text-align: center;
-line-height: 18px;
+line-height: 21px;
+font-family: brandon;
+-webkit-appearance: none;
+text-align: center;
 }
 
 .time-box {
@@ -279,13 +282,22 @@ display: none;
 background: none;
 border: none;
 font-size: 18px;
-max-width: 75%;
+width: 85%;
 word-wrap: break-word;
 margin: 0;
 padding: 0px;
 font-family: brandon;
 color: white;
 margin-top: 18px;
+line-height: 22px;
+}
+
+.time-div{
+	text-align: center;
+	margin: 12px 15px;
+}
+.wide .time-div {
+	margin:0;
 }
 
 /*.pullout {
@@ -459,6 +471,7 @@ padding-right: 3px;
 .wide .detail {
 	display: block;
 	-webkit-animation: enter 0.5s;
+	/*margin:0;*/
 }
 
 .wide .flag {
